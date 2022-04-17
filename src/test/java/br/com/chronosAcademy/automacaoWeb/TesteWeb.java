@@ -1,23 +1,27 @@
 package br.com.chronosAcademy.automacaoWeb;
 
+//Primeiro teste automatizado do curso, primeira amostra de uma automação//
+
+import br.com.chronosAcademy.core.Driver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.Assert.*;
 
 public class TesteWeb {
 
-    ChromeDriver driver;// para ficar visível para todos os metodos
+    WebDriver driver;// para ficar visível para todos os metodos
+    Driver driverWeb ;
 
     @Before
     public void inicializaTeste(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        driverWeb = new Driver("Chrome");
+        driver = driverWeb.getDriver();
         driver.get("https://www.chronosacademy.com.br");
     }
 
